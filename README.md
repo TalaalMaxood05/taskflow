@@ -1,16 +1,42 @@
-# React + Vite
+# Taskflow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Kanban-style task board built with React + Supabase.
 
-Currently, two official plugins are available:
+**Live:** (https://taskflow-brown-six.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- 4-column board (To Do, In Progress, In Review, Done)
+- Drag-and-drop between columns
+- Task creation with title, description, priority, due date
+- Labels/tags with board-level filtering
+- Due date indicators (overdue, today, soon)
+- Anonymous auth with per-user data isolation (RLS)
+- Search by task title
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech
 
-## Expanding the ESLint configuration
+- **Frontend:** React (Vite)
+- **Database & Auth:** Supabase (Postgres + Anonymous Auth + RLS)
+- **Hosting:** Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Setup
+
+```bash
+git clone (https://github.com/TalaalMaxood05/taskflow.git)
+cd taskflow
+npm install
+```
+
+Create `.env`:
+
+```
+VITE_SUPABASE_URL= your_supabase_url
+VITE_SUPABASE_ANON_KEY= your_anon_key
+```
+
+Run the SQL schema in Supabase SQL Editor (see `schema.sql` or the deliverable doc), enable Anonymous Auth in Supabase dashboard, then:
+
+```bash
+npm run dev
+```
